@@ -17,13 +17,13 @@ export const userSchema = z.object({
     name:
         z.string({ error: errors.noInput })
             .min(5, { error: errors.minCharacters(5) })
-            .max(50, { error: errors.maxCharacters(50) })
-            .refine((value)=>!value.includes(' '),),
+            .max(50, { error: errors.maxCharacters(50) }),
 
     username:
         z.string({ error: errors.noInput })
             .min(3, { error: errors.minCharacters(3) })
-            .max(20, { error: errors.maxCharacters(20) }),
+            .max(20, { error: errors.maxCharacters(20) })
+            .refine((value) => !value.includes(' '), { error: errors.username }),
 
     password:
         z.string({ error: errors.noInput })
