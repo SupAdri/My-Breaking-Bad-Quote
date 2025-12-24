@@ -3,7 +3,8 @@ import { z } from 'zod'
 const errors = {
     noInput: 'Please fill in this field',
     minCharacters: (min: number) => `The value must be greater than ${min} characters.`,
-    maxCharacters: (max: number) => `The value cannot exceed ${max} characters.`
+    maxCharacters: (max: number) => `The value cannot exceed ${max} characters.`,
+    username: 'The username cannot contain spaces'
 }
 
 export const loginSchema = z.object({
@@ -16,7 +17,8 @@ export const userSchema = z.object({
     name:
         z.string({ error: errors.noInput })
             .min(5, { error: errors.minCharacters(5) })
-            .max(50, { error: errors.maxCharacters(50) }),
+            .max(50, { error: errors.maxCharacters(50) })
+            .refine((value)=>!value.includes(' '),),
 
     username:
         z.string({ error: errors.noInput })
