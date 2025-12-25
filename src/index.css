@@ -11,6 +11,10 @@ body{
   align-self: center;
 }
 
+#root{
+  width: 100%;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
