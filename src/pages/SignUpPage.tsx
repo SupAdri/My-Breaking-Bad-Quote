@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 function SignUpPage() {
     return (
-        <>
+        <div className='flex flex-col justify-center items-center'>
             <h1 className="text-center font-bold text-5xl m-10">SignUp</h1>
             <SignUpLayout />
             <Link to="/login">
@@ -13,7 +13,7 @@ function SignUpPage() {
             <Link to="/">
                 <Button className="w-full" variant='link'>Go Home</Button>
             </Link>
-        </>
+        </div>
     )
 }
 
