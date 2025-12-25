@@ -1,16 +1,7 @@
 import { RefreshCcwIcon } from "lucide-react"
 import { Button } from "./ui/button"
-import { Skeleton } from "./ui/skeleton"
 import { useQuote } from "@/store/useQuoteStore"
-
-function Loading() {
-  return (
-    <div>
-      <div className="text-2xl italic flex justify-start">"<Skeleton className="mx-1 h-4 w-full mt-2 rounded-none" />"</div>
-      <div className="flex flex-col items-end mr-2"><Skeleton className="h-4 w-[100px] m-2 rounded-none" /></div>
-    </div>
-  )
-}
+import LoadingQuote from "./LoadingQuote"
 
 function QuoteText() {
   const { quote, getQuote } = useQuote()
@@ -19,7 +10,7 @@ function QuoteText() {
       <div>
         <div>
           <div className="text-2xl italic flex justify-start">"{quote?.quote}"</div>
-          <div className="text-gray-400 m-2 text-end">{quote?.author}</div>
+          <div className="text-neutral-400 m-2 text-end">{quote?.author}</div>
         </div>
       </div>
 
@@ -50,7 +41,7 @@ function QuoteComponet() {
   const { quote, loading } = useQuote()
   return (
     loading ?
-      <Loading />
+      <LoadingQuote />
       :
       !quote ?
         <NoQuote />
