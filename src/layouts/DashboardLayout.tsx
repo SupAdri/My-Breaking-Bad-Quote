@@ -21,6 +21,7 @@ const items = [
         id: "admin",
         title: "Administration",
         url: "/dashboard/admin",
+        admin: true,
         icon: LayoutDashboardIcon,
     },
 ]
@@ -45,6 +46,7 @@ function DashboardLayout({ section, children }: Props) {
                         <SidebarGroupLabel>Dashboard</SidebarGroupLabel>
                         <SidebarMenu>
                             {items.map((item) => (
+                                (!item.admin || user?.isAdmin) &&
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild isActive={section == item.id}>
                                         <Link to={item.url}>
@@ -58,11 +60,11 @@ function DashboardLayout({ section, children }: Props) {
                     </SidebarGroup>
                 </SidebarContent>
                 <SidebarFooter>
-                    <Link onClick={loginOut} to='/'><Button className="w-full"><LogOutIcon/>Sing out</Button></Link>
+                    <Link onClick={loginOut} to='/'><Button className="w-full"><LogOutIcon />Sing out</Button></Link>
                 </SidebarFooter>
             </Sidebar>
             <main className="w-full">
-                <SidebarTrigger className="p-5 bg-black border-neutral-700 border-1  m-2"/>
+                <SidebarTrigger className="p-5 bg-black border-neutral-700 border-1  m-2" />
                 {children}
             </main>
         </SidebarProvider >

@@ -36,3 +36,16 @@ export const userSchema = z.object({
     error: "The passwords do not match",
     path: ['confirmPassword']
 })
+
+export const editSchema = userSchema.pick({
+    name: true,
+    username: true
+})
+
+export const changePasswordSchema = userSchema.pick({
+    password: true,
+    confirmPassword: true
+}).refine((data) => data.password == data.confirmPassword, {
+    error: "The passwords do not match",
+    path: ['confirmPassword']
+})
