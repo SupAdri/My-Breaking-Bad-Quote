@@ -2,14 +2,16 @@ import { Route, Routes } from "react-router-dom"
 import LoginPage from "./pages/LoginPage"
 import SignUpPage from "./pages/SignUpPage"
 import HomePage from "./pages/HomePage"
+import PorfilePage from "./pages/PorfilePage"
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/dashboard/porfile" element={<PorfilePage />} />
       </Routes>
     </>
   )

@@ -27,7 +27,8 @@ type Error = {
 type UserService = {
     comprobateUser: (user: NewUser) => Promise<boolean>
     login: (credencials: Credencials) => Promise<User | null>
-    signUp: (user:NewUser) => Promise<User | null>
+    signUp: (user: NewUser) => Promise<User | null>
+    edit: (user: NewUser) => Promise<User | null>
 }
 
 export const useUserService: UserService = {
@@ -64,4 +65,18 @@ export const useUserService: UserService = {
             return null
         }
     },
+
+    edit: async (user) => {
+        const res = await fetch(pathURL + '/user/edit', { headers: { 'Content-Type': 'application/json' }, method: 'POST', body: JSON.stringify(user) })
+
+        if (res.ok) {
+            const data: User = await res.json()
+            return data
+        } else {
+            const error: Error = await res.json()
+            alert(error.message)
+            return null
+        }
+    },
+
 }

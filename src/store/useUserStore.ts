@@ -1,21 +1,24 @@
 import { create } from 'zustand'
 import { type User, type NewUser, type Credencials, useUserService } from '@/services/userService'
 import type { Quote } from '@/services/quoteService'
-import {persist} from 'zustand/middleware'
+import { persist } from 'zustand/middleware'
 
 type UserStore = {
     user: Omit<User, "password"> | null,
     isAuthenticate: boolean,
-    loading: boolean
+    loading: boolean,
+    setLoading: (loading: boolean) => void
     signUp: (newUser: NewUser, quote: Quote) => void
     login: (credencials: Credencials) => void
     loginOut: () => void
+    edit: (editUser?: Partial<User> | null, quote?: Quote | null) => void
 }
 
-export const useUser = create<UserStore>()(persist((set) => ({
+export const useUser = create<UserStore>()(persist((set, get) => ({
     user: null,
     isAuthenticate: false,
     loading: false,
+    setLoading: (loading) => set(() => ({ loading: loading })),
     signUp: async (newUser, quote) => {
         console.log('comenzo')
         set(() => ({
@@ -45,9 +48,33 @@ export const useUser = create<UserStore>()(persist((set) => ({
         }))
         if (user != null) open('/', '_parent')
     },
-    loginOut: () => set(() => ({ user: null, isAuthenticate: false }))
-}),{
-    name:'user'
+    loginOut: () => set(() => ({ user: null, isAuthenticate: false })),
+    edit: async (editUser, quote) => {
+        set(() => ({
+            loading: true
+        }))
+        editUser = {
+            ...get().user,
+            ...editUser
+        }
+        if (quote) {
+            editUser.quote = quote
+        }
+        const user = await useUserService.edit(editUser)
+        if (user == null) {
+            set(() => ({
+                loading: false,
+            }))
+        } else {
+            set(() => ({
+                user: user,
+                loading: false,
+                isAuthenticate: true
+            }))
+        }
+    }
+}), {
+    name: 'user'
 }))
 
 
