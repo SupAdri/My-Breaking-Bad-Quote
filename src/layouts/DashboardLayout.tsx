@@ -13,7 +13,7 @@ const items = [
     },
     {
         id: 'porfile',
-        title: "Profil",
+        title: "Profile",
         url: "/dashboard/porfile",
         icon: UserRoundIcon,
     },

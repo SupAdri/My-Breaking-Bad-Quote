@@ -4,15 +4,20 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { loginSchema } from "@/validations/userValidatios"
 import InputForm from "./InputForm"
 import { useUser } from "@/store/useUserStore"
+import { useEffect } from "react"
 
 
 function LoginForm() {
 
-    const{login} = useUser()
+    const{login,setLoading} = useUser()
 
     const form = useForm({
         resolver: zodResolver(loginSchema)
     })
+
+    useEffect(()=>{
+        setLoading(false)
+    },[])
 
     return (
         <Form {...form}>
