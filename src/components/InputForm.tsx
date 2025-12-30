@@ -9,6 +9,7 @@ type InputFormType = {
     description?: string,
     message?: boolean,
     className?: string
+    checked?: boolean
     form: any //no se q pinga iba a recibir aqui asi q puse un any pa la pinga
 }
 

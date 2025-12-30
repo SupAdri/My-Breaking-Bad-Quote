@@ -64,7 +64,7 @@ function DashboardLayout({ section, children }: Props) {
                 </SidebarFooter>
             </Sidebar>
             <main className="w-full">
-                <SidebarTrigger className="p-5 bg-black border-neutral-700 border-1  m-2" />
+                <SidebarTrigger className="p-5 bg-black border-neutral-700 border-1  m-2 sticky top-2 z-20" />
                 {children}
             </main>
         </SidebarProvider >
