@@ -1,6 +1,7 @@
 import type { User } from "./userService"
 
-const pathURL = 'http://localhost:3000/api'
+//const pathURL = 'http://localhost:3000/api'
+const pathURL = 'https://my-breaking-bad-quote-back.vercel.app/api'
 
 type AdminService = {
     createUser: (user: Partial<User>, token: string) => Promise<string>

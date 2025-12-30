@@ -1,6 +1,7 @@
 import type { Quote } from '@/services/quoteService'
 
-const pathURL = 'http://localhost:3000/api'
+//const pathURL = 'http://localhost:3000/api'
+const pathURL = 'https://my-breaking-bad-quote-back.vercel.app/api'
 
 export type Credencials = {
     username: string
