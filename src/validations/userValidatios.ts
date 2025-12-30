@@ -49,3 +49,9 @@ export const changePasswordSchema = userSchema.pick({
     error: "The passwords do not match",
     path: ['confirmPassword']
 })
+
+export const editAdminSchema = userSchema.omit({
+    confirmPassword: true
+}).extend({
+    isAdmin:z.boolean()
+})

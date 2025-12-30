@@ -11,25 +11,30 @@ import {
 } from "@/components/ui/dialog"
 import LoadingButton from "./LoadingButton"
 import type React from "react"
+import type { MouseEventHandler } from "react"
 
 type Props = {
-    children: React.ReactNode
+    children?: React.ReactNode
     title?: string
     description?: string
-    textButton: string,
-    loading: boolean
+    textButton?: string,
+    loading?: boolean
     close?: string
     ok?: string
     icon?: React.ReactNode
     form?: string
+    buttonClass?: string
+    buttonVariant?: "outline" | "link" | "default" | "destructive" | "secondary" | "ghost"
+    okVariant?: "outline" | "link" | "default" | "destructive" | "secondary" | "ghost"
+    okOnClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-export default function DialogComponet({ children, textButton, title, description, loading, close = 'Close', ok = "ok", icon, form }: Props) {
+export default function DialogComponet({ children, textButton, title, description, loading, close = 'Close', ok = "ok", icon, form, buttonClass, buttonVariant = 'outline', okOnClick, okVariant }: Props) {
     return (
         <Dialog>
             <form>
                 <DialogTrigger asChild>
-                    <Button variant="outline">{icon && icon}{textButton}</Button>
+                    <Button className={buttonClass} variant={buttonVariant}>{icon && icon}{textButton}</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
@@ -46,7 +51,7 @@ export default function DialogComponet({ children, textButton, title, descriptio
                                 loading ?
                                 <LoadingButton value={ok} />
                                 :
-                                <Button form={form} type="submit">{ok}</Button>
+                                <Button form={form} type="submit" variant={okVariant} onClick={okOnClick}>{ok}</Button>
 
                         }
                     </DialogFooter>
