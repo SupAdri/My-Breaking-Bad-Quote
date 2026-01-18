@@ -29,7 +29,7 @@ type Props = {
     okOnClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-export default function DialogComponet({ children, textButton, title, description, loading, close = 'Close', ok = "ok", icon, form, buttonClass, buttonVariant = 'outline', okOnClick, okVariant }: Props) {
+export default function DialogComponent({ children, textButton, title, description, loading, close = 'Close', ok = "ok", icon, form, buttonClass, buttonVariant = 'outline', okOnClick, okVariant }: Props) {
     return (
         <Dialog>
             <form>

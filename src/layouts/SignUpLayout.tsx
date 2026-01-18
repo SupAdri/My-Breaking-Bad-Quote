@@ -5,7 +5,7 @@ import { useCreateUser } from "@/store/useUserStore"
 import { ArrowLeftIcon } from "lucide-react"
 import { useQuote } from "@/store/useQuoteStore"
 import LoadingButton from "@/components/LoadingButton"
-import QuoteComponet from "@/components/QuoteComponet"
+import QuoteComponent from "@/components/QuoteComponent"
 import { useUser } from "@/store/useUserStore"
 
 
@@ -29,7 +29,7 @@ function SignUpLayout() {
             <div>
               <Button onClick={deleteUser} variant='link' size='sinMargen' ><ArrowLeftIcon />Back</Button>
               <div className="font-bold text-2xl">Tu frase es:</div>
-              <QuoteComponet />
+              <QuoteComponent />
             </div>
             :
             <SignUpForm />

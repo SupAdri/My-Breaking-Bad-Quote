@@ -1,7 +1,7 @@
 import { useUser } from "@/store/useUserStore"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import PorfilCard from "@/components/PorfilCard"
+import ProfileCard from "@/components/ProfileCard"
 
 function HeaderLayout() {
     const { isAuthenticate } = useUser()
@@ -10,7 +10,7 @@ function HeaderLayout() {
             <h1 className="font-bold">My Breaking Bad Quote</h1>
             {
                 isAuthenticate ?
-                    <PorfilCard />
+                    <ProfileCard />
                     :
                     <div className="space-x-2">
                         <Link to="/login"><Button variant='outline'>Login</Button></Link>

@@ -1,13 +1,13 @@
 import ChangePassword from "@/components/ChangePassword"
-import EditPorfile from "@/components/EditPorfile"
+import EditProfile from "@/components/EditProfile"
 import LoadingButton from "@/components/LoadingButton"
-import QuoteComponet from "@/components/QuoteComponet"
+import QuoteComponent from "@/components/QuoteComponent"
 import { Button } from "@/components/ui/button"
 import { useQuote } from "@/store/useQuoteStore"
 import { useUser } from "@/store/useUserStore"
 import { useEffect } from "react"
 
-function PorfileLayout() {
+function ProfileLayout() {
     const { user, edit, setLoading, loading } = useUser()
     const { quote, setQuote } = useQuote()
     const loadingQuote = useQuote().loading
@@ -17,15 +17,15 @@ function PorfileLayout() {
     }, [])
     return (
         <div className="w-full flex flex-col justify-center items-center p-8">
-            <h1 className="text-3xl font-bold border-b-2 border-white border-dashed">Porfile</h1>
+            <h1 className="text-3xl font-bold border-b-2 border-white border-dashed">Profile</h1>
             <h2 className="text-4xl mt-5 text-center">{user?.name}</h2>
             <div className="text-neutral-500 mb-5">{user?.username}</div>
             <div className="space-y-2 flex flex-col items-center">
-                <EditPorfile />
+                <EditProfile />
                 <ChangePassword />
             </div>
             <div className="p-3 w-full max-w-xl">
-                <QuoteComponet />
+                <QuoteComponent />
                 <div className="mt-4">
                     {
                         (quote?.quote == user?.quote.quote || loadingQuote) ?
@@ -44,4 +44,4 @@ function PorfileLayout() {
     )
 }
 
-export default PorfileLayout
+export default ProfileLayout

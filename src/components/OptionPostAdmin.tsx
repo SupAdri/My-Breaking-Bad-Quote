@@ -1,10 +1,10 @@
 import { Edit3Icon, Trash2Icon } from "lucide-react"
-import DialogComponet from "./DialogComponet"
+import DialogComponent from "./DialogComponent"
 import type { User } from "@/services/userService"
 import AdminUserForm from "./AdminUserForm"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { editAdminSchema } from "@/validations/userValidatios"
+import { editAdminSchema } from "@/validations/userValidations"
 import { useEffect } from "react"
 import { useQuote } from "@/store/useQuoteStore"
 import { useAdmin } from "@/store/useAdminStore"
@@ -34,7 +34,7 @@ function OptionPostAdmin({ user }: Props) {
         <div className="w-full flex justify-between items-center mb-2">
             <div className="text-neutral-400 truncate">Token: {user.token}</div>
             <div className="flex space-x-2">
-                <DialogComponet
+                <DialogComponent
                     title="Edit User"
                     description={`token: ${user.token}`}
                     icon={<Edit3Icon />}
@@ -56,8 +56,8 @@ function OptionPostAdmin({ user }: Props) {
 
                         })}
                     />
-                </DialogComponet>
-                <DialogComponet
+                </DialogComponent>
+                <DialogComponent
                     title={`Delete | ${user.username}`}
                     description="Seguro de eliminar este usuario?"
                     icon={<Trash2Icon />}
@@ -70,7 +70,7 @@ function OptionPostAdmin({ user }: Props) {
                     }}
                 >
 
-                </DialogComponet>
+                </DialogComponent>
             </div>
         </div>
     )

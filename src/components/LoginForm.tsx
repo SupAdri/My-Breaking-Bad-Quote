@@ -1,7 +1,7 @@
 import { Form } from "./ui/form"
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { loginSchema } from "@/validations/userValidatios"
+import { loginSchema } from "@/validations/userValidations"
 import InputForm from "./InputForm"
 import { useUser } from "@/store/useUserStore"
 import { useEffect } from "react"
