@@ -12,9 +12,9 @@ const items = [
         icon: HomeIcon,
     },
     {
-        id: 'porfile',
+        id: 'profile',
         title: "Profile",
-        url: "/dashboard/porfile",
+        url: "/dashboard/profile",
         icon: UserRoundIcon,
     },
     {

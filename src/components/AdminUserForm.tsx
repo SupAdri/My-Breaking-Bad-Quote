@@ -1,7 +1,7 @@
 import { Form, FormLabel } from "./ui/form"
 import InputForm from "./InputForm"
 import type { FormEventHandler } from "react"
-import QuoteComponet from "./QuoteComponet"
+import QuoteComponent from "./QuoteComponent"
 import { Checkbox } from "./ui/checkbox"
 
 type Props = {
@@ -44,7 +44,7 @@ function AdminUserForm({ id, form, onSubmit }: Props) {
                     <FormLabel htmlFor="check">Is Admin</FormLabel>
                 </div>
                 <div className='w-full border-1 my-3 border-dashed'></div>
-                <QuoteComponet />
+                <QuoteComponent />
             </form>
         </Form>
     )

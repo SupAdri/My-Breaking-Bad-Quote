@@ -3,8 +3,8 @@ import { Form } from "./ui/form"
 import { KeyRoundIcon } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { changePasswordSchema } from "@/validations/userValidatios"
-import DialogComponet from "./DialogComponet"
+import { changePasswordSchema } from "@/validations/userValidations"
+import DialogComponent from "./DialogComponent"
 import InputForm from "./InputForm"
 export default function ChangePassword() {
   const { edit, loading } = useUser()
@@ -12,7 +12,7 @@ export default function ChangePassword() {
     resolver: zodResolver(changePasswordSchema)
   })
   return (
-    <DialogComponet
+    <DialogComponent
       icon={<KeyRoundIcon />}
       textButton="Change Password"
       ok="Save Change"
@@ -41,6 +41,6 @@ export default function ChangePassword() {
           />
         </form>
       </Form>
-    </DialogComponet>
+    </DialogComponent>
   )
 }

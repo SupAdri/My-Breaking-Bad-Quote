@@ -1,8 +1,8 @@
-import DialogComponet from './DialogComponet'
+import DialogComponent from './DialogComponent'
 import { UserRoundPlus } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { editAdminSchema } from '@/validations/userValidatios'
+import { editAdminSchema } from '@/validations/userValidations'
 import { useQuote } from '@/store/useQuoteStore'
 import { useAdmin } from '@/store/useAdminStore'
 import AdminUserForm from './AdminUserForm'
@@ -21,7 +21,7 @@ function CreateAdminUser() {
     const { loading, createUser } = useAdmin()
     return (
         <div className='rounded-md bg-neutral-800'>
-            <DialogComponet
+            <DialogComponent
                 icon={<UserRoundPlus />}
                 textButton='Add User'
                 form='createUserAdmin'
@@ -47,7 +47,7 @@ function CreateAdminUser() {
                         })
                     }
                 />
-            </DialogComponet>
+            </DialogComponent>
         </div>
     )
 }

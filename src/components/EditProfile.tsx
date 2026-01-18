@@ -2,12 +2,12 @@ import { useUser } from "@/store/useUserStore"
 import { Form } from "./ui/form"
 import { Edit3Icon } from "lucide-react"
 import { useForm } from "react-hook-form"
-import { editSchema } from "@/validations/userValidatios"
+import { editSchema } from "@/validations/userValidations"
 import { zodResolver } from "@hookform/resolvers/zod"
 import InputForm from "./InputForm"
-import DialogComponet from "./DialogComponet"
+import DialogComponent from "./DialogComponent"
 
-function EditPorfile() {
+function EditProfile() {
   const { user, edit, loading } = useUser()
   const form = useForm({
     resolver: zodResolver(editSchema),
@@ -17,10 +17,10 @@ function EditPorfile() {
     }
   })
   return (
-    <DialogComponet
+    <DialogComponent
       loading={loading}
-      textButton="Edit Porfile"
-      title="Edit Porfile"
+      textButton="Edit Profile"
+      title="Edit Profile"
       description="Make changes to your profile here."
       close="Close"
       ok="Save changes"
@@ -51,8 +51,8 @@ function EditPorfile() {
           />
         </form>
       </Form>
-    </DialogComponet>
+    </DialogComponent>
   )
 }
 
-export default EditPorfile
+export default EditProfile
